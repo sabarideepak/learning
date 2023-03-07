@@ -34,7 +34,7 @@ void main() {
                 TextSpan(
                   text: 'ALL',
                   style: TextStyle(
-                      fontSize: 30.0,
+                      fontSize: 10.0,
                       color: Colors.purple,
                       fontWeight: FontWeight.bold),
                 ),

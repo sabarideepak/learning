@@ -11,17 +11,10 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SAGE',
+      themeMode: ThemeMode.system,
       color: Colors.deepPurple,
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          backgroundColor: Colors.blueGrey[900],
-          appBar: AppBar(
-            title: Text(
-              'Dashboard'.toUpperCase(),
-              selectionColor: Colors.white,
-            ),
-          ),
-          body: Dashboard()),
+      home: Dashboard(),
     );
   }
 }

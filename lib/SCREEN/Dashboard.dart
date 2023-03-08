@@ -16,11 +16,13 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       body: Center(
-          child: Image.asset(
-        'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg',
-        width: double.infinity,
-        height: double.infinity,
-      )),
+        child: Image.asset(
+          'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg',
+          width: 900,
+          height: 1200,
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

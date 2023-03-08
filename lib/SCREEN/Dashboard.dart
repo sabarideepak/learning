@@ -9,6 +9,37 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        width: 500.0,
+        height: 300.0,
+        padding: EdgeInsets.all(70.0),
+        margin: EdgeInsets.all(300.0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Colors.deepOrange,
+          border: Border.all(color: Colors.black, width: 10),
+          // borderRadius: BorderRadius.circular(30.0),
+          shape: BoxShape.circle,
+          image: DecorationImage(
+              image: AssetImage(
+                  'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+              fit: BoxFit.fitHeight),
+          boxShadow: [
+            BoxShadow(
+                color: Colors.deepPurple,
+                offset: Offset(0, 15.0),
+                blurRadius: 5.0)
+          ],
+        ),
+        // child: Text(
+        //   'Container',
+        //   style: TextStyle(color: Colors.black, fontSize: 30),
+        // ),
+      ),
+    );
+  }
+}
+/* Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
@@ -32,9 +63,9 @@ class Dashboard extends StatelessWidget {
           iconSize: 300,
         ),
       ),
-    );
+    );*/
 
-    /* Center(   ------------>image additing
+/* Center(   ------------>image additing
         child: Image.asset(
           'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg',
           width: 900,
@@ -43,9 +74,11 @@ class Dashboard extends StatelessWidget {
         ),
 
       ),*/
-  }
+/*}
 }
-
+*/
+/*
 int getNumber() {
   return Random().nextInt(30);
 }
+*/

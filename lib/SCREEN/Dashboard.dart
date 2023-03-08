@@ -16,15 +16,11 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text(
-          'This is Random value ${getNumber()}',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 30.0,
-          ),
-        ),
-      ),
+          child: Image.asset(
+        'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg',
+        width: double.infinity,
+        height: double.infinity,
+      )),
     );
   }
 }

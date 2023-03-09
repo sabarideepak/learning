@@ -6,15 +6,28 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+        title: Text('HOME'),
+        actions: [
+          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () {}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {}),
+        ],
+        backgroundColor: Colors.deepPurple,
+        elevation: 30,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))),
+        centerTitle: true,
+      ),
       body: Center(
         child: ElevatedButton(
           child: Text('Button'),
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            fixedSize: Size(700.0, 200.0),
+            fixedSize: Size(500.0, 100.0),
             alignment: Alignment.center,
             primary: Colors.black,
-            onPrimary: Colors.indigoAccent,
+            onPrimary: Colors.white,
             elevation: 30,
             shadowColor: Colors.indigo,
             shape: StadiumBorder(side: BorderSide.none),

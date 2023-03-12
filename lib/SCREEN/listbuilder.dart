@@ -66,7 +66,7 @@ class listbuilder extends StatelessWidget {
               currentAccountPicture: Icon(Icons.account_circle_sharp, size: 90),
               currentAccountPictureSize: Size.square(72.0),
               otherAccountsPictures: [
-                Icon(Icons.account_circle_sharp),
+                Icon(Icons.account_circle_outlined),
                 Icon(Icons.account_circle_sharp),
               ],
             ),
@@ -75,24 +75,27 @@ class listbuilder extends StatelessWidget {
               leading: Icon(Icons.inbox),
               iconColor: Colors.deepPurple,
               title: Text('Inbox'),
-              trailing:
-                  Text('unread 100+', style: TextStyle(color: Colors.red)),
+              trailing: Text('100+',
+                  style: TextStyle(
+                      color: Colors.red, fontWeight: FontWeight.bold)),
             ),
             ListTile(
               onTap: () {},
               leading: Icon(Icons.mail),
               iconColor: Colors.green,
               title: Text('Primary'),
-              trailing:
-                  Text('unread 1000+', style: TextStyle(color: Colors.red)),
+              trailing: Text('1000+',
+                  style: TextStyle(
+                      color: Colors.red, fontWeight: FontWeight.bold)),
             ),
             ListTile(
               onTap: () {},
               leading: Icon(Icons.send),
               iconColor: Colors.lightBlueAccent,
               title: Text('Sent'),
-              trailing:
-                  Text('unsaved Draft', style: TextStyle(color: Colors.red)),
+              trailing: Text('Draft 1',
+                  style: TextStyle(
+                      color: Colors.red, fontWeight: FontWeight.bold)),
             ),
             ListTile(
               onTap: () {},

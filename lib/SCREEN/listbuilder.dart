@@ -61,12 +61,65 @@ class listbuilder extends StatelessWidget {
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-                accountName: Text('Sabarideepak'),
-                accountEmail: Text('deepaksabari2911@gmail.com'),
-                currentAccountPicture: Icon(
-                  Icons.account_circle_sharp,
-                  size: 50.0,
-                ))
+              accountName: Text('Sabarideepak'),
+              accountEmail: Text('deepaksabari2911@gmail.com'),
+              currentAccountPicture: Icon(Icons.account_circle_sharp, size: 90),
+              currentAccountPictureSize: Size.square(72.0),
+              otherAccountsPictures: [
+                Icon(Icons.account_circle_sharp),
+                Icon(Icons.account_circle_sharp),
+              ],
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.inbox),
+              iconColor: Colors.deepPurple,
+              title: Text('Inbox'),
+              trailing:
+                  Text('unread 100+', style: TextStyle(color: Colors.red)),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.mail),
+              iconColor: Colors.green,
+              title: Text('Primary'),
+              trailing:
+                  Text('unread 1000+', style: TextStyle(color: Colors.red)),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.send),
+              iconColor: Colors.lightBlueAccent,
+              title: Text('Sent'),
+              trailing:
+                  Text('unsaved Draft', style: TextStyle(color: Colors.red)),
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.delete),
+              title: Text('Trash'),
+              iconColor: Colors.black,
+              trailing: Icon(Icons.delete_forever),
+              hoverColor: Colors.red,
+            ),
+            ListTile(
+              title: Text('Labels'),
+              hoverColor: Colors.red,
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.label),
+              title: Text('Favourite'),
+              iconColor: Colors.pink,
+              trailing: Icon(Icons.favorite),
+              hoverColor: Colors.red,
+            ),
+            ListTile(
+              onTap: () {},
+              leading: Icon(Icons.label),
+              title: Text('Green'),
+              iconColor: Colors.green,
+            ),
           ],
         ),
       ),
@@ -74,6 +127,10 @@ class listbuilder extends StatelessWidget {
         title:
             Text('SABARI APP', style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
+        actions: [
+          Icon(Icons.search),
+          Padding(padding: EdgeInsets.only(right: 20.0)),
+        ],
       ),
       body: Container(
         child: ListView.builder(

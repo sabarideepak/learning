@@ -55,6 +55,26 @@ class listbuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        elevation: 30,
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                accountName: Text('Sabarideepak'),
+                accountEmail: Text('deepaksabari2911@gmail.com'),
+                currentAccountPicture: Icon(
+                  Icons.account_circle_sharp,
+                  size: 50.0,
+                ))
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        title:
+            Text('SABARI APP', style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+      ),
       body: Container(
         child: ListView.builder(
           itemCount: 12,

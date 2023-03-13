@@ -165,11 +165,11 @@ class floatingButton extends StatelessWidget {
                   )),
             ),
             Positioned(
-              left: 25,
-              top: 150.0,
+              left: 50,
+              top: 200.0,
               child: Container(
-                  width: 200.0,
-                  height: 150.0,
+                  width: 500.0,
+                  height: 400.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     boxShadow: [
@@ -188,11 +188,11 @@ class floatingButton extends StatelessWidget {
                   )),
             ),
             Positioned(
-              left: 50,
-              top: 200.0,
+              left: 25,
+              top: 150.0,
               child: Container(
-                  width: 500.0,
-                  height: 400.0,
+                  width: 200.0,
+                  height: 150.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                     boxShadow: [

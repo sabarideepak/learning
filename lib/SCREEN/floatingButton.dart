@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning/widgets/boxshadow.dart';
 
 class floatingButton extends StatelessWidget {
   const floatingButton({Key? key}) : super(key: key);
@@ -146,23 +147,18 @@ class floatingButton extends StatelessWidget {
       body: Center(
         child: Stack(
           children: [
-            Positioned(
+            boxshadow(
+              //this one custom widget
+              image: DecorationImage(
+                image: AssetImage(
+                    'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                fit: BoxFit.fill,
+              ),
+              top: 1,
+              color: Colors.pink,
               left: 1,
-              top: 1.0,
-              child: Container(
-                  width: 800.0,
-                  height: 800.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 3,
-                        offset: Offset(0, 2),
-                        spreadRadius: 5,
-                      ),
-                    ],
-                  )),
+              height: 50.0,
+              width: 50.0,
             ),
             Positioned(
               left: 50,

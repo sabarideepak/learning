@@ -143,6 +143,132 @@ class floatingButton extends StatelessWidget {
           ],
         ),
       ),
+      body: Center(
+        child: Stack(
+          children: [
+            Positioned(
+              left: 1,
+              top: 1.0,
+              child: Container(
+                  width: 800.0,
+                  height: 800.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 3,
+                        offset: Offset(0, 2),
+                        spreadRadius: 5,
+                      ),
+                    ],
+                  )),
+            ),
+            Positioned(
+              left: 25,
+              top: 150.0,
+              child: Container(
+                  width: 200.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(0, 2),
+                        spreadRadius: 5,
+                      ),
+                    ],
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
+            ),
+            Positioned(
+              left: 50,
+              top: 200.0,
+              child: Container(
+                  width: 500.0,
+                  height: 400.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(0, 2),
+                        spreadRadius: 5,
+                      ),
+                    ],
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
+            ),
+            Positioned(
+              left: 375,
+              top: 150.0,
+              child: Container(
+                  width: 200.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 10,
+                        offset: Offset(0, 2),
+                        spreadRadius: 5,
+                      ),
+                    ],
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                  )),
+            ),
+            Positioned(
+              top: 570.0,
+              left: 370,
+              child: Text('STACK MODE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Positioned(
+              top: 125.0,
+              left: 370,
+              child: Text('my dear friends',
+                  style: TextStyle(
+                    color: Colors.deepOrange,
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Positioned(
+              top: 100.0,
+              left: 370,
+              child: Text('Welcome Back',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

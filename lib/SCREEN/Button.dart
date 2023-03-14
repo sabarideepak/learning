@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'floatingButton.dart';
 
 class Button extends StatelessWidget {
   const Button({Key? key}) : super(key: key);
@@ -21,8 +22,17 @@ class Button extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('Button'),
-          onPressed: () {},
+          child: Text('WELCOME'),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return floatingButton();
+                },
+              ),
+            );
+          },
           style: ElevatedButton.styleFrom(
             fixedSize: Size(500.0, 100.0),
             alignment: Alignment.center,

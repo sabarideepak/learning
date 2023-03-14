@@ -89,8 +89,10 @@ class floatingButton extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add_alert),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Icon(Icons.home),
         elevation: 10.0,
       ),
       bottomNavigationBar: BottomAppBar(

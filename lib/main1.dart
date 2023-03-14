@@ -105,18 +105,108 @@ class Stful extends StatefulWidget {
 }
 
 class _StfulState extends State<Stful> {
+  bool liked = false;
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.all(1),
       children: [
+        Padding(padding: EdgeInsets.all(1)),
         ListTile(
-          leading: Icon(Icons.account_circle_sharp),
-          onTap: () {},
+          shape: liked
+              ? BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)))
+              : BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+          leading: liked
+              ? Icon(Icons.account_circle_outlined)
+              : Icon(Icons.account_circle),
           iconColor: Colors.white,
-          tileColor: Colors.deepOrange,
-          title: Text('Sabari', style: TextStyle(color: Colors.white)),
-          subtitle: Text('worker', style: TextStyle(color: Colors.white)),
-        )
+          tileColor: liked ? Colors.blueGrey : Colors.deepOrange,
+          title: liked
+              ? Text('Sabari', style: TextStyle(color: Colors.white))
+              : Text(
+                  'Sabari',
+                  style: TextStyle(color: Colors.black),
+                ),
+          subtitle: liked
+              ? Text(
+                  'worker',
+                  style: TextStyle(color: Colors.white),
+                )
+              : Text(
+                  'worker',
+                  style: TextStyle(color: Colors.black),
+                ),
+          trailing: liked ? Icon(Icons.favorite_outline) : Icon(Icons.favorite),
+          onTap: () {
+            setState(() => liked = !liked);
+          },
+        ),
+        Padding(padding: EdgeInsets.all(2)),
+        ListTile(
+          shape: liked
+              ? BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)))
+              : BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+          leading: liked
+              ? Icon(Icons.account_circle_outlined)
+              : Icon(Icons.account_circle),
+          iconColor: Colors.white,
+          tileColor: liked ? Colors.blueGrey : Colors.deepOrange,
+          title: liked
+              ? Text('Sabari', style: TextStyle(color: Colors.white))
+              : Text(
+                  'Sabari',
+                  style: TextStyle(color: Colors.black),
+                ),
+          subtitle: liked
+              ? Text(
+                  'worker',
+                  style: TextStyle(color: Colors.white),
+                )
+              : Text(
+                  'worker',
+                  style: TextStyle(color: Colors.black),
+                ),
+          trailing: liked ? Icon(Icons.favorite_outline) : Icon(Icons.favorite),
+          onTap: () {
+            setState(() => liked = !liked);
+          },
+        ),
+        Padding(padding: EdgeInsets.all(2)),
+        ListTile(
+          shape: liked
+              ? BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(5)))
+              : BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+          leading: liked
+              ? Icon(Icons.account_circle_outlined)
+              : Icon(Icons.account_circle),
+          iconColor: Colors.white,
+          tileColor: liked ? Colors.blueGrey : Colors.deepOrange,
+          title: liked
+              ? Text('Sabari', style: TextStyle(color: Colors.white))
+              : Text(
+                  'Sabari',
+                  style: TextStyle(color: Colors.black),
+                ),
+          subtitle: liked
+              ? Text(
+                  'worker',
+                  style: TextStyle(color: Colors.white),
+                )
+              : Text(
+                  'worker',
+                  style: TextStyle(color: Colors.black),
+                ),
+          trailing: liked ? Icon(Icons.favorite_outline) : Icon(Icons.favorite),
+          onTap: () {
+            setState(() => liked = !liked);
+          },
+        ),
       ],
     );
   }

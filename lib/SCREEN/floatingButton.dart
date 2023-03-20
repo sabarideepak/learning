@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning/widgets/boxshadow.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 
 class floatingButton extends StatelessWidget {
   const floatingButton({Key? key}) : super(key: key);
@@ -149,24 +150,11 @@ class floatingButton extends StatelessWidget {
       body: Center(
         child: Stack(
           children: [
-            boxshadow(
-              //this one custom widget
-              image: DecorationImage(
-                image: AssetImage(
-                    'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
-                fit: BoxFit.fill,
-              ),
-              top: 1,
-              color: Colors.pink,
-              left: 1,
-              height: 50.0,
-              width: 50.0,
-            ),
             Positioned(
-              left: 50,
+              left: 10,
               top: 200.0,
               child: Container(
-                  width: 500.0,
+                  width: 400.0,
                   height: 400.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
@@ -209,10 +197,10 @@ class floatingButton extends StatelessWidget {
                   )),
             ),
             Positioned(
-              left: 375,
+              left: 240,
               top: 150.0,
               child: Container(
-                  width: 200.0,
+                  width: 170.0,
                   height: 150.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
@@ -233,7 +221,7 @@ class floatingButton extends StatelessWidget {
             ),
             Positioned(
               top: 570.0,
-              left: 370,
+              left: 230,
               child: Text('STACK MODE',
                   style: TextStyle(
                     color: Colors.white,
@@ -244,7 +232,7 @@ class floatingButton extends StatelessWidget {
             ),
             Positioned(
               top: 125.0,
-              left: 370,
+              left: 220,
               child: Text('my dear friends',
                   style: TextStyle(
                     color: Colors.deepOrange,
@@ -255,7 +243,7 @@ class floatingButton extends StatelessWidget {
             ),
             Positioned(
               top: 100.0,
-              left: 370,
+              left: 220,
               child: Text('Welcome Back',
                   style: TextStyle(
                     color: Colors.black,

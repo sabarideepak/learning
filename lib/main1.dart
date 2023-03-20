@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'SCREEN/decrement.dart';
 
 void main() => runApp(Mynew());
 
@@ -91,7 +92,7 @@ class Mynew extends StatelessWidget {
             ],
           ),
         ),
-        body: Stful(),
+        body: decrement(),
       ),
     );
   }

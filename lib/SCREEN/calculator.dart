@@ -1,22 +1,24 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class calculator extends StatefulWidget {
-  const calculator({Key? key}) : super(key: key);
+  const calculator({Key? key}) : super(key: key);{
+    print('im cons');
+}
+
 
   @override
   State<calculator> createState() => _calculatorState();
 }
 
 class _calculatorState extends State<calculator> {
-  bool i = true;
-  int a = 0;
-  int b = 2;
+  @override
+  void initState() {
+    late int
+    // TODO: implement initState
+    super.initState();
+  }
   void one() {
-    setState(() {
-      print(a);
-    });
+    setState(() {});
   }
 
   @override
@@ -46,11 +48,11 @@ class _calculatorState extends State<calculator> {
                             spreadRadius: 1)
                       ],
                     ),
-                    child: Align(
+                    child: const Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        '${a}',
-                        style: const TextStyle(
+                        '',
+                        style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 30),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'SCREEN/decrement.dart';
+//import 'package:learning/SCREEN/calculator.dart';
+import 'SCREEN/appBar.dart';
+//import 'SCREEN/calculator.dart';
 
 void main() => runApp(const Mynew());
 
@@ -11,7 +13,7 @@ class Mynew extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
+        /*appBar: AppBar(
           title: const Text('SABARI APP',
               style: TextStyle(fontWeight: FontWeight.bold)),
           centerTitle: true,
@@ -19,7 +21,7 @@ class Mynew extends StatelessWidget {
             Icon(Icons.search),
             Padding(padding: EdgeInsets.only(right: 20.0)),
           ],
-        ),
+        ),*/
         drawer: Drawer(
           backgroundColor: Colors.white,
           elevation: 30,
@@ -92,7 +94,7 @@ class Mynew extends StatelessWidget {
             ],
           ),
         ),
-        body: const decrement(),
+        body: Appbar(),
       ),
     );
   }

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:learning/SCREEN/Button.dart';
+import 'package:learning/SCREEN/Row.dart';
+import 'package:learning/SCREEN/column.dart';
+import 'package:learning/SCREEN/config.dart';
+import 'package:learning/SCREEN/config_colour.dart';
 import 'package:learning/SCREEN/statusscreen.dart';
 import 'package:learning/SCREEN/videocallsscreen.dart';
+import 'Routerscreen.dart';
 import 'addcontactscreen.dart';
 import 'allchats.dart';
 import 'callscreen.dart';
@@ -27,93 +33,203 @@ class _AppbarState extends State<Appbar> {
             toolbarHeight: 50.0,
             centerTitle: true,
             flexibleSpace: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.bottomLeft,
                         end: Alignment.bottomRight,
                         colors: <Color>[
-                  Colors.red,
-                  Colors.black,
-                  Colors.red
+                  Coloursheet.redColour,
+                  Coloursheet.blackColour,
+                  Coloursheet.redColour
                 ]))),
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0))),
-            backgroundColor: Colors.red,
-            title: Text('Appbar'),
-            leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+            backgroundColor: Coloursheet.redColour,
+            title: Text(getString.appbarTitle),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
             ],
             bottom: TabBar(
-              indicatorColor: Colors.white,
+              indicatorColor: Coloursheet.whiteColour,
               isScrollable: true,
               tabs: [
                 Tab(
                   child: Row(
-                    children: [
+                    children: const [
                       Icon(Icons.account_circle),
-                      Text('Contact'),
+                      Text(getString.tabbarContact),
                     ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.call), Text('calls')],
+                    children: const [
+                      Icon(Icons.call),
+                      Text(getString.tabbarcalls)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.video_call), Text('videocalls')],
+                    children: const [
+                      Icon(Icons.video_call),
+                      Text(getString.tabbarvideocalls)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.history), Text('calls history')],
+                    children: const [
+                      Icon(Icons.history),
+                      Text(getString.tabbarcallshistory)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [
+                    children: const [
                       Icon(Icons.access_time_filled_sharp),
-                      Text('status')
+                      Text(getString.tabbarstatus)
                     ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [
+                    children: const [
                       Icon(Icons.add_circle_outlined),
-                      Text('Add contact')
+                      Text(getString.tabbarAddcontact)
                     ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.all_inbox), Text('Allchats')],
+                    children: const [
+                      Icon(Icons.all_inbox),
+                      Text(getString.tabbarAllchats)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.fast_forward), Text('forward')],
+                    children: const [
+                      Icon(Icons.fast_forward),
+                      Text(getString.tabbarforward)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.favorite), Text('favourite')],
+                    children: const [
+                      Icon(Icons.favorite),
+                      Text(getString.tabbarfavourite)
+                    ],
                   ),
                 ),
                 Tab(
                   child: Row(
-                    children: [Icon(Icons.delete), Text('delete')],
+                    children: const [
+                      Icon(Icons.delete),
+                      Text(getString.tabbardelete)
+                    ],
                   ),
                 ),
               ],
             )
             //PreferredSize(child: Container(), preferredSize: Size(30, 50)),
             ),
+        drawer: Drawer(
+          backgroundColor: Coloursheet.whiteColour,
+          elevation: 30,
+          child: ListView(
+            children: [
+              const UserAccountsDrawerHeader(
+                accountName: Text(getString.drawerAccountname),
+                accountEmail: Text(getString.drawerAccountEmail),
+                currentAccountPicture:
+                    Icon(Icons.account_circle_sharp, size: 90),
+                currentAccountPictureSize: Size.square(72.0),
+                otherAccountsPictures: [
+                  Icon(Icons.account_circle_outlined),
+                  Icon(Icons.account_circle_sharp),
+                ],
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.inbox),
+                iconColor: Colors.deepPurple,
+                title: const Text(getString.listtileTitleInbox),
+                trailing: const Text(getString.trailingTitle100,
+                    style: TextStyle(
+                        color: Coloursheet.redColour,
+                        fontWeight: FontWeight.bold)),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.mail),
+                iconColor: Coloursheet.greenColour,
+                title: const Text(getString.listtileTitlePrimary),
+                trailing: const Text(getString.trailingTitle1000,
+                    style: TextStyle(
+                        color: Coloursheet.redColour,
+                        fontWeight: FontWeight.bold)),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.send),
+                iconColor: Coloursheet.lightBlueAccent,
+                title: const Text(getString.listtileTitleSent),
+                trailing: const Text(getString.trailingTitleDraft1,
+                    style: TextStyle(
+                        color: Coloursheet.redColour,
+                        fontWeight: FontWeight.bold)),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Icons.delete),
+                title: const Text(getString.listtileTitleTrash),
+                iconColor: Coloursheet.blackColour,
+                trailing: const Icon(Icons.delete_forever),
+                hoverColor: Coloursheet.redColour,
+              ),
+              ExpansionTile(
+                title: const Text(getString.expansionTitle),
+                children: [
+                  ListTile(
+                      leading: ElevatedButton(
+                          style: const ButtonStyle(
+                              fixedSize:
+                                  MaterialStatePropertyAll(Size(200, 30))),
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routerclass.appBar);
+                            /*Navigator.push(context, MaterialPageRoute(----------inline navigation
+                              builder: (context) {
+                                return const Row1();
+                              },
+                            ));*/
+                          },
+                          child: const Text(getString.row))),
+                  ListTile(
+                      leading: ElevatedButton(
+                          style: const ButtonStyle(
+                              fixedSize:
+                                  MaterialStatePropertyAll(Size(200, 30))),
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routerclass.Column);
+                            /*Navigator.push(context, MaterialPageRoute(-----inline push navigation
+                              builder: (context) {
+                                return const Column1();
+                              },
+                            ));*/
+                          },
+                          child: const Text(getString.column))),
+                ],
+              ),
+            ],
+          ),
+        ),
         body: TabBarView(children: [
           Container(
             child: Contact(),
@@ -149,7 +265,7 @@ class _AppbarState extends State<Appbar> {
         bottomNavigationBar: BottomAppBar(
           shape: null,
           height: 80.0,
-          color: Colors.red,
+          color: Coloursheet.redColour,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -157,51 +273,51 @@ class _AppbarState extends State<Appbar> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FloatingActionButton(
-                      backgroundColor: Colors.blueGrey,
+                      backgroundColor: Coloursheet.blueGrey,
                       onPressed: () {},
                       child: const Icon(
                         Icons.account_circle,
                         size: 40.0,
                       )),
-                  const Text('PROFILE',
+                  const Text(getString.btm_nav_PROFILE,
                       style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white)),
+                          color: Coloursheet.whiteColour)),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FloatingActionButton(
-                      backgroundColor: Colors.blueGrey,
+                      backgroundColor: Coloursheet.blueGrey,
                       onPressed: () {},
                       child: const Icon(
                         Icons.add_a_photo_sharp,
                         size: 40.0,
                       )),
-                  const Text('CAMERA',
+                  const Text(getString.btm_nav_CAMERA,
                       style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white)),
+                          color: Coloursheet.whiteColour)),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   FloatingActionButton(
-                      backgroundColor: Colors.blueGrey,
+                      backgroundColor: Coloursheet.blueGrey,
                       onPressed: () {},
                       child: const Icon(
                         Icons.home,
                         size: 40.0,
                       )),
-                  const Text('HOME',
+                  const Text(getString.home,
                       style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white)),
+                          color: Coloursheet.whiteColour)),
                 ],
               ),
             ],

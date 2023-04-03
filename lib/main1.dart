@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learning/SCREEN/Routerscreen.dart';
 //import 'package:learning/SCREEN/calculator.dart';
-import 'SCREEN/Row.dart';
-import 'SCREEN/appBar.dart';
 
 void main() => runApp(const Mynew());
 
@@ -12,90 +11,7 @@ class Mynew extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('SABARI APP',
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          centerTitle: true,
-          actions: const [
-            Icon(Icons.search),
-            Padding(padding: EdgeInsets.only(right: 20.0)),
-          ],
-        ),
-        drawer: Drawer(
-          backgroundColor: Colors.white,
-          elevation: 30,
-          child: ListView(
-            children: [
-              const UserAccountsDrawerHeader(
-                accountName: Text('Sabarideepak'),
-                accountEmail: Text('deepaksabari2911@gmail.com'),
-                currentAccountPicture:
-                    Icon(Icons.account_circle_sharp, size: 90),
-                currentAccountPictureSize: Size.square(72.0),
-                otherAccountsPictures: [
-                  Icon(Icons.account_circle_outlined),
-                  Icon(Icons.account_circle_sharp),
-                ],
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.inbox),
-                iconColor: Colors.deepPurple,
-                title: const Text('Inbox'),
-                trailing: const Text('100+',
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold)),
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.mail),
-                iconColor: Colors.green,
-                title: const Text('Primary'),
-                trailing: const Text('1000+',
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold)),
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.send),
-                iconColor: Colors.lightBlueAccent,
-                title: const Text('Sent'),
-                trailing: const Text('Draft 1',
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold)),
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.delete),
-                title: const Text('Trash'),
-                iconColor: Colors.black,
-                trailing: const Icon(Icons.delete_forever),
-                hoverColor: Colors.red,
-              ),
-              const ListTile(
-                title: Text('Labels'),
-                hoverColor: Colors.red,
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.label),
-                title: const Text('Favourite'),
-                iconColor: Colors.pink,
-                trailing: const Icon(Icons.favorite),
-                hoverColor: Colors.red,
-              ),
-              ListTile(
-                onTap: () {},
-                leading: const Icon(Icons.label),
-                title: const Text('Green'),
-                iconColor: Colors.green,
-              ),
-            ],
-          ),
-        ),
-        body: Row1(),
-      ),
+      routes: Routerclass.navirout(),
     );
   }
 }

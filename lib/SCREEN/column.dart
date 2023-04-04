@@ -134,7 +134,7 @@ class _RowState extends State<Column1> {
                     style: const ButtonStyle(
                         fixedSize: MaterialStatePropertyAll(Size(100, 20))),
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, Routerclass.Column);
+                      Navigator.popAndPushNamed(context, Routerclass.appBar);
                       // Navigator.pop(context);
                     },
                     child: const Text(getString.back,

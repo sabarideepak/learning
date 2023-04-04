@@ -203,7 +203,7 @@ class _AppbarState extends State<Appbar> {
                               fixedSize:
                                   MaterialStatePropertyAll(Size(200, 30))),
                           onPressed: () {
-                            Navigator.pushNamed(context, Routerclass.appBar);
+                            Navigator.pushNamed(context, Routerclass.Row);
                             /*Navigator.push(context, MaterialPageRoute(----------inline navigation
                               builder: (context) {
                                 return const Row1();
@@ -225,6 +225,42 @@ class _AppbarState extends State<Appbar> {
                             ));*/
                           },
                           child: const Text(getString.column))),
+                ],
+              ),
+              ExpansionTile(
+                childrenPadding: const EdgeInsets.all(10),
+                title: const Text('ListViews'),
+                expandedCrossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routerclass.ListviewBtn);
+                      },
+                      child: const Text(getString.listviewBtnName),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routerclass.ListviewBuilderBtn);
+                      },
+                      child: const Text(getString.listviewBuilderBtnName),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routerclass.ListviewSeparatorBtn);
+                      },
+                      child: const Text(getString.listviewSeparatedBtnName),
+                    ),
+                  )
                 ],
               ),
             ],

@@ -138,7 +138,7 @@ class _RowState extends State<Row1> {
                           fixedSize: MaterialStatePropertyAll(Size(100, 20))),
                       onPressed: () {
                         // Navigator.pop(context);-------inline navigation
-                        Navigator.popAndPushNamed(context, Routerclass.Column);
+                        Navigator.popAndPushNamed(context, Routerclass.appBar);
                       },
                       child: const Text(getString.back,
                           style: TextStyle(color: Coloursheet.whiteColour))),

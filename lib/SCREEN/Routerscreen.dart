@@ -5,6 +5,7 @@ import 'Listviewseparator.dart';
 import 'Row.dart';
 import 'appBar.dart';
 import 'column.dart';
+import 'gridview.dart';
 import 'listview.dart';
 import 'listviewbuilder.dart';
 
@@ -16,6 +17,7 @@ class Routerclass {
   static const String ListviewBtn = 'listviewButton';
   static const String ListviewBuilderBtn = 'listviewBuilderButton';
   static const String ListviewSeparatorBtn = 'listviewSeparatorButton';
+  static const String Gridviewbtn = 'gridviewButton';
 
   static Map<String, WidgetBuilder> navirout() {
     return {
@@ -25,6 +27,7 @@ class Routerclass {
       Routerclass.ListviewBtn: (context) => const Listview(),
       Routerclass.ListviewBuilderBtn: (context) => const ListviewBuilder(),
       Routerclass.ListviewSeparatorBtn: (context) => const ListviewSeparator(),
+      Routerclass.Gridviewbtn: (context) => const Gridview(),
     };
   }
 }

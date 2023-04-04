@@ -31,4 +31,6 @@ class getString {
   static const listviewBuilderBtnName = 'ListviewBuilder';
   static const listviewSeparatedBtnName = 'Listviewseparated';
   static const listviewtitle = 'LISTVIEW';
+  static const gridviewtitle = 'GRIDVIEW';
+  static const gridviewbtnname = 'Gridview';
 }

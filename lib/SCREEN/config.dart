@@ -27,4 +27,8 @@ class getString {
   static const tabbarvideocalls = 'videocalls';
   static const tabbarcalls = 'calls';
   static const tabbarContact = 'Contact';
+  static const listviewBtnName = 'Listview';
+  static const listviewBuilderBtnName = 'ListviewBuilder';
+  static const listviewSeparatedBtnName = 'Listviewseparated';
+  static const listviewtitle = 'LISTVIEW';
 }

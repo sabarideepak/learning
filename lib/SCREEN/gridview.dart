@@ -38,11 +38,9 @@ class _GridviewState extends State<Gridview> {
         ],
       ),
       body: GridView(
+        padding: const EdgeInsets.all(10.0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1.0,
-            crossAxisCount: 3,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 1.0),
+            crossAxisCount: 3, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0),
         children: [
           Container(
             child: Image.asset(
@@ -52,9 +50,10 @@ class _GridviewState extends State<Gridview> {
             child: Image.asset('assets/jpg/fedor-PtW4RywQV4s-unsplash.jpg'),
           ),
           Container(
-            child: Image.asset(
-                'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),
-          ),
+              child: const Image(
+            image: NetworkImage(
+                'https://fastly.picsum.photos/id/331/200/200.jpg?hmac=otNh1Xx2hk_Tng_SFa60ayddRGORvWnDKJ2wG1l0KIE'),
+          )),
           Container(
             child: Image.asset('assets/jpg/fedor-PtW4RywQV4s-unsplash.jpg'),
           ),

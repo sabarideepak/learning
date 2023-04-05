@@ -26,7 +26,7 @@ class getString {
   static const tabbarcallshistory = 'calls history';
   static const tabbarvideocalls = 'videocalls';
   static const tabbarcalls = 'calls';
-  static const tabbarContact = 'Contact';
+  static const tabbarContact = 'Chats';
   static const listviewBtnName = 'Listview';
   static const listviewBuilderBtnName = 'ListviewBuilder';
   static const listviewSeparatedBtnName = 'Listviewseparated';

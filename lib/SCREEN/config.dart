@@ -33,4 +33,6 @@ class getString {
   static const listviewtitle = 'LISTVIEW';
   static const gridviewtitle = 'GRIDVIEW';
   static const gridviewbtnname = 'Gridview';
+  static const gridviewbuildertitle = 'GRIDVIEWBUILDER';
+  static const gridviewBuilderbtnname = 'GridviewBuilder';
 }

@@ -46,44 +46,41 @@ class _GridviewState extends State<Gridview> {
         children: [
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+          ),
+          Container(
+            child: Image.asset('assets/jpg/fedor-PtW4RywQV4s-unsplash.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),
+          ),
+          Container(
+            child: Image.asset('assets/jpg/fedor-PtW4RywQV4s-unsplash.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/them-snapshots-nDCsrhWRRDI-unsplash.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
           ),
           Container(
             child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                'assets/jpg/them-snapshots-nDCsrhWRRDI-unsplash.jpg'),
           ),
           Container(
-            child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+            child: Image.asset('assets/jpg/fedor-PtW4RywQV4s-unsplash.jpg'),
           ),
-          Container(
-            child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
-          ),
-          Container(
-            child: Image.asset(
-                'images/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
-          )
         ],
       ),
     );

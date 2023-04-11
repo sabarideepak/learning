@@ -279,6 +279,25 @@ class _AppbarState extends State<Appbar> {
                       },
                       child: const Text(getString.gridviewBuilderbtnname),
                     ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routerclass.AlertBtn);
+                      },
+                      child: const Text(getString.Alertscreen),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routerclass.BottomImageUploadBtn);
+                      },
+                      child: const Text(getString.BottomImageUpload),
+                    ),
                   )
                 ],
               ),
@@ -319,63 +338,74 @@ class _AppbarState extends State<Appbar> {
         ]),
         bottomNavigationBar: BottomAppBar(
           shape: null,
-          height: 80.0,
+          height: 82.0,
           color: Coloursheet.redColour,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  FloatingActionButton(
-                      backgroundColor: Coloursheet.blueGrey,
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.account_circle,
-                        size: 40.0,
-                      )),
-                  const Text(getString.btm_nav_PROFILE,
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Coloursheet.whiteColour)),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  FloatingActionButton(
-                      backgroundColor: Coloursheet.blueGrey,
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.add_a_photo_sharp,
-                        size: 40.0,
-                      )),
-                  const Text(getString.btm_nav_CAMERA,
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Coloursheet.whiteColour)),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  FloatingActionButton(
-                      backgroundColor: Coloursheet.blueGrey,
-                      onPressed: () {},
-                      child: const Icon(
-                        Icons.home,
-                        size: 40.0,
-                      )),
-                  const Text(getString.home,
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Coloursheet.whiteColour)),
-                ],
-              ),
-            ],
+          child: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.bottomLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                  Coloursheet.redColour,
+                  Coloursheet.blackColour,
+                  Coloursheet.redColour
+                ])),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: Coloursheet.blueGrey,
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.account_circle,
+                          size: 30.0,
+                        )),
+                    const Text(getString.btm_nav_PROFILE,
+                        style: TextStyle(
+                            fontSize: 10.0,
+                            fontWeight: FontWeight.bold,
+                            color: Coloursheet.whiteColour)),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: Coloursheet.blueGrey,
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.add_a_photo_sharp,
+                          size: 30.0,
+                        )),
+                    const Text(getString.btm_nav_CAMERA,
+                        style: TextStyle(
+                            fontSize: 10.0,
+                            fontWeight: FontWeight.bold,
+                            color: Coloursheet.whiteColour)),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FloatingActionButton(
+                        backgroundColor: Coloursheet.blueGrey,
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.home,
+                          size: 30.0,
+                        )),
+                    const Text(getString.home,
+                        style: TextStyle(
+                            fontSize: 10.0,
+                            fontWeight: FontWeight.bold,
+                            color: Coloursheet.whiteColour)),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

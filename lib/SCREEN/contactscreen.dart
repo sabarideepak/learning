@@ -67,11 +67,11 @@ class Contact extends StatelessWidget {
                 Container(
                   child: Container(
                     alignment: Alignment.center,
-                    width: 25,
-                    height: 25,
+                    width: 30,
+                    height: 30,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.blue),
+                        color: Coloursheet.blueColour),
                     child: Text(
                       unread[index],
                       style: const TextStyle(color: Coloursheet.whiteColour),

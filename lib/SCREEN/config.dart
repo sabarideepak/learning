@@ -35,4 +35,6 @@ class getString {
   static const gridviewbtnname = 'Gridview';
   static const gridviewbuildertitle = 'GRIDVIEWBUILDER';
   static const gridviewBuilderbtnname = 'GridviewBuilder';
+  static const Alertscreen = 'ALERTPAGE';
+  static const BottomImageUpload = 'BOTTOMPAGE';
 }

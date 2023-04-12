@@ -37,4 +37,5 @@ class getString {
   static const gridviewBuilderbtnname = 'GridviewBuilder';
   static const Alertscreen = 'ALERTPAGE';
   static const BottomImageUpload = 'BOTTOMPAGE';
+  static const Utubehomepagebtn = 'YOUTUBE';
 }

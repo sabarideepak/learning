@@ -315,10 +315,9 @@ class _Home1State extends State<Home1> {
                           'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),
                     ),
                     Container(
-                        child: const Image(
-                      image: NetworkImage(
+                      child: Image.asset(
                           'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),
-                    )),
+                    ),
                     Container(
                       child: Image.asset(
                           'assets/jpg/them-snapshots-40U4YEffPgE-unsplash.jpg'),

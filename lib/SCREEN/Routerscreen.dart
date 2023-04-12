@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:learning/SCREEN/youtube/Homepage.dart';
 import '../main1.dart';
 import 'Listviewseparator.dart';
 import 'Row.dart';
@@ -24,6 +25,7 @@ class Routerclass {
   static const String Gridviewbuilderbtn = 'gridviewBuilderButton';
   static const String AlertBtn = 'alertScreenButton';
   static const String BottomImageUploadBtn = 'bottomImageUploadButton';
+  static const String UtubeHomepagebtn = 'youtubebutton';
 
   static Map<String, WidgetBuilder> navirout() {
     return {
@@ -37,6 +39,7 @@ class Routerclass {
       Routerclass.Gridviewbuilderbtn: (context) => const GridviewBuilder(),
       Routerclass.AlertBtn: (context) => const Alertscreen(),
       Routerclass.BottomImageUploadBtn: (context) => const BottomImageUpload(),
+      Routerclass.UtubeHomepagebtn: (context) => const UtubeHomepage(),
     };
   }
 }

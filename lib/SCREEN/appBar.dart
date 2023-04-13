@@ -308,6 +308,15 @@ class _AppbarState extends State<Appbar> {
                       },
                       child: const Text(getString.Utubehomepagebtn),
                     ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routerclass.AmazonHomebtn);
+                      },
+                      child: const Text(getString.AmzHomebtn),
+                    ),
                   )
                 ],
               ),

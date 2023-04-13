@@ -38,4 +38,5 @@ class getString {
   static const Alertscreen = 'ALERTPAGE';
   static const BottomImageUpload = 'BOTTOMPAGE';
   static const Utubehomepagebtn = 'YOUTUBE';
+  static const AmzHomebtn = 'AMAZON';
 }

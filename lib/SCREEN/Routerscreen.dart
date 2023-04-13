@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:learning/SCREEN/youtube/Homepage.dart';
 import '../main1.dart';
+import 'AMAZON/Homepage.dart';
 import 'Listviewseparator.dart';
 import 'Row.dart';
 import 'alertscreen.dart';
@@ -26,6 +27,7 @@ class Routerclass {
   static const String AlertBtn = 'alertScreenButton';
   static const String BottomImageUploadBtn = 'bottomImageUploadButton';
   static const String UtubeHomepagebtn = 'youtubebutton';
+  static const String AmazonHomebtn = 'Amazonbutton';
 
   static Map<String, WidgetBuilder> navirout() {
     return {
@@ -40,6 +42,7 @@ class Routerclass {
       Routerclass.AlertBtn: (context) => const Alertscreen(),
       Routerclass.BottomImageUploadBtn: (context) => const BottomImageUpload(),
       Routerclass.UtubeHomepagebtn: (context) => const UtubeHomepage(),
+      Routerclass.AmazonHomebtn: (context) => const AmzHomepage(),
     };
   }
 }

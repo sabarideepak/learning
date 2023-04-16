@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'expansiontile.dart';
 
@@ -10,153 +11,1883 @@ class AmzHomepage extends StatefulWidget {
 }
 
 class _AmzHomepageState extends State<AmzHomepage> {
+  final controller = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: <Color>[Colors.cyan, Colors.cyanAccent],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight))),
-          title: Container(
-            width: double.infinity,
-            height: 40,
-            decoration: ShapeDecoration(
-              shadows: const <BoxShadow>[
-                BoxShadow(color: Colors.grey, spreadRadius: 1, blurRadius: 1)
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        scrollDirection: Axis.vertical,
+        slivers: [
+          SliverAppBar(
+            floating: false,
+            pinned: true,
+            backgroundColor: Colors.tealAccent,
+            title: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
+                    color: Colors.white,
+                  ),
+                  child: ListTile(
+                    leading: Icon(Icons.search, color: Colors.black),
+                    title: Text('Search Amazon.in',
+                        style: TextStyle(color: Colors.grey)),
+                    trailing: Icon(Icons.qr_code_scanner_outlined,
+                        color: Colors.grey),
+                  ),
+                )
               ],
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
-              color: Colors.white,
             ),
-            child: const ListTile(
-                leading: Padding(
-                  padding: EdgeInsets.only(bottom: 5.0),
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                ),
-                title: Padding(
-                  padding: EdgeInsets.only(bottom: 5.0),
-                  child: Text(
-                    'Search Amazon.in',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ),
-                trailing: Padding(
-                  padding: EdgeInsets.only(bottom: 5.0),
-                  child: Icon(
-                    Icons.qr_code_scanner_outlined,
-                    color: Colors.grey,
-                  ),
-                )),
-          ),
-          actions: const [
-            Center(
-                child: Padding(
-              padding: EdgeInsets.only(right: 10.0),
-              child: Icon(
-                Icons.keyboard_voice_outlined,
+            actions: [
+              Icon(
+                Icons.mic_none_outlined,
                 color: Colors.black,
-              ),
-            ))
-          ],
-          bottom: PreferredSize(
-              child: Container(
-                width: double.infinity,
-                height: 35,
-                color: Colors.cyanAccent,
-                child: Row(
-                  children: [
-                    Icon(Icons.location_on_outlined, color: Colors.black),
-                    Text('Deliver to Chennai'),
-                  ],
-                ),
-              ),
-              preferredSize: Size(double.infinity, 35)),
-        ),
-        backgroundColor: Colors.grey,
-        body: Container(
-          width: double.infinity,
-          height: 100,
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      child:
-                          Image(image: AssetImage('assets/png/Amazonlogo.png')),
-                    ),
-                    Text('tt')
-                  ],
-                ),
-              ])
+              )
             ],
+            centerTitle: true,
+            expandedHeight: 100,
+            flexibleSpace: FlexibleSpaceBar(
+                background: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                        spreadRadius: 1,
+                        color: Colors.cyanAccent,
+                        blurRadius: 1)
+                  ]),
+                  width: double.infinity,
+                  height: 40,
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.black,
+                      ),
+                      Text(
+                        'Deliver to Tiruchirappalli 620005',
+                        style: TextStyle(color: Colors.black),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )),
           ),
-        ));
+          SliverToBoxAdapter(
+              child: Column(
+            children: [
+              //first product list row
+              Container(
+                width: double.infinity,
+                height: 70,
+                color: Colors.white24,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage('assets/png/pngegg.png')),
+                              ),
+                              Text('Headset')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (1).png')),
+                              ),
+                              Text('Charger')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (2).png')),
+                              ),
+                              Text('Aux')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (3).png')),
+                              ),
+                              Text('Tripod')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (4).png')),
+                              ),
+                              Text('Iphone')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (5).png')),
+                              ),
+                              Text('Spareparts')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (6).png')),
+                              ),
+                              Text('System')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (7).png')),
+                              ),
+                              Text('Software')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (8).png')),
+                              ),
+                              Text('Laptops')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (3).png')),
+                              ),
+                              Text('Tripods')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage('assets/png/pngegg.png')),
+                              ),
+                              Text('Headset')
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsetsDirectional.all(8),
+                                width: 70,
+                                height: 50,
+                                child: Image(
+                                    image: AssetImage(
+                                        'assets/png/pngegg (8).png')),
+                              ),
+                              Text('Laptops')
+                            ],
+                          ),
+                        ]),
+                  ],
+                ),
+              ),
+              //Second product list pageview row
+              Container(
+                width: double.infinity,
+                height: 300,
+                color: Colors.black12,
+                child: PageView(
+                  controller: controller,
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                    Image(
+                        image: AssetImage(
+                            'assets/jpg/3d-illustration-workspace.jpg.pagespeed.ce.Fx4pca0q_y.jpg'),
+                        fit: BoxFit.cover),
+                  ],
+                ),
+              ),
+              SmoothPageIndicator(
+                controller: controller,
+                count: 6,
+                effect: const JumpingDotEffect(
+                  activeDotColor: Colors.teal,
+                  dotColor: Colors.grey,
+                  dotWidth: 8,
+                  dotHeight: 8,
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 170,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150,
+                                    height: 150,
+                                    decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        color: Colors.white,
+                                        shadows: [
+                                          BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius: 1,
+                                              spreadRadius: 1)
+                                        ]),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 70,
+                                              height: 70,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  CircleAvatar(
+                                                    child: Image(
+                                                        image: AssetImage(
+                                                            'assets/png/Amazonlogo.png')),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 5.0,
+                                                  ),
+                                                  Text(
+                                                    'Amazon pay',
+                                                    style:
+                                                        TextStyle(fontSize: 8),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 120,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (1).png')),
+                                    ),
+                                    Text('Charger')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (2).png')),
+                                    ),
+                                    Text('Aux')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripod')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (4).png')),
+                                    ),
+                                    Text('Iphone')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (5).png')),
+                                    ),
+                                    Text('Spareparts')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (6).png')),
+                                    ),
+                                    Text('System')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (7).png')),
+                                    ),
+                                    Text('Software')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripods')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                              ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 120,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (1).png')),
+                                    ),
+                                    Text('Charger')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (2).png')),
+                                    ),
+                                    Text('Aux')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripod')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (4).png')),
+                                    ),
+                                    Text('Iphone')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (5).png')),
+                                    ),
+                                    Text('Spareparts')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (6).png')),
+                                    ),
+                                    Text('System')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (7).png')),
+                                    ),
+                                    Text('Software')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripods')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                              ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 120,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (1).png')),
+                                    ),
+                                    Text('Charger')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (2).png')),
+                                    ),
+                                    Text('Aux')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripod')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (4).png')),
+                                    ),
+                                    Text('Iphone')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (5).png')),
+                                    ),
+                                    Text('Spareparts')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (6).png')),
+                                    ),
+                                    Text('System')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (7).png')),
+                                    ),
+                                    Text('Software')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripods')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                              ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 120,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (1).png')),
+                                    ),
+                                    Text('Charger')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (2).png')),
+                                    ),
+                                    Text('Aux')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripod')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (4).png')),
+                                    ),
+                                    Text('Iphone')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (5).png')),
+                                    ),
+                                    Text('Spareparts')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (6).png')),
+                                    ),
+                                    Text('System')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (7).png')),
+                                    ),
+                                    Text('Software')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (3).png')),
+                                    ),
+                                    Text('Tripods')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg.png')),
+                                    ),
+                                    Text('Headset')
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: AssetImage(
+                                              'assets/png/pngegg (8).png')),
+                                    ),
+                                    Text('Laptops')
+                                  ],
+                                ),
+                              ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )),
+        ],
+      ),
+    );
   }
 }
 

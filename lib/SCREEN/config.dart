@@ -39,4 +39,5 @@ class getString {
   static const BottomImageUpload = 'BOTTOMPAGE';
   static const Utubehomepagebtn = 'YOUTUBE';
   static const AmzHomebtn = 'AMAZON';
+  static const Sharedpref = 'Sharedpref';
 }

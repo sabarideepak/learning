@@ -5,6 +5,7 @@ import '../main1.dart';
 import 'AMAZON/Homepage.dart';
 import 'Listviewseparator.dart';
 import 'Row.dart';
+import 'Sharedpref.dart';
 import 'alertscreen.dart';
 import 'appBar.dart';
 import 'bottomImageUpload.dart';
@@ -28,6 +29,7 @@ class Routerclass {
   static const String BottomImageUploadBtn = 'bottomImageUploadButton';
   static const String UtubeHomepagebtn = 'youtubebutton';
   static const String AmazonHomebtn = 'Amazonbutton';
+  static const String Sharedprefbtn = 'SharedprefButton';
 
   static Map<String, WidgetBuilder> navirout() {
     return {
@@ -43,6 +45,7 @@ class Routerclass {
       Routerclass.BottomImageUploadBtn: (context) => const BottomImageUpload(),
       Routerclass.UtubeHomepagebtn: (context) => const UtubeHomepage(),
       Routerclass.AmazonHomebtn: (context) => const AmzHomepage(),
+      Routerclass.Sharedprefbtn: (context) => const Sharedpref(),
     };
   }
 }

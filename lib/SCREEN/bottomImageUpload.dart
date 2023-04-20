@@ -14,21 +14,36 @@ class BottomImageUpload extends StatefulWidget {
 class _BottomImageUploadState extends State<BottomImageUpload> {
   final ImagePicker picker = ImagePicker();
   File? myimages;
-
-  get photo1 => null;
-
+  File? mygallery;
+  File? multipleimage;
+  List<XFile> PickedMultipleImage = [];
   void Imagetaking() async {
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
 
-    if (photo != Null) {
+    if (photo != null) {
       setState(() {
-        myimages = File(photo!.path);
+        myimages = File(photo.path);
       });
     }
   }
 
   void Gallerytaking() async {
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? photo = await picker.pickImage(source: ImageSource.gallery);
+
+    if (photo != null) {
+      setState(() {
+        mygallery = File(photo.path);
+      });
+    }
+  }
+
+  void Multipleimage() async {
+    final List<XFile>? Multiple = await picker.pickMultiImage();
+    if (Multiple != null) {
+      setState(() {
+        PickedMultipleImage.addAll(Multiple);
+      });
+    }
   }
 
   @override
@@ -45,12 +60,11 @@ class _BottomImageUploadState extends State<BottomImageUpload> {
           backgroundColor: Coloursheet.deeppurpleColour,
           onClosing: () {},
           builder: (BuildContext context) => Container(
-            height: 300.0,
+            height: 100.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
                         padding: const EdgeInsets.only(right: 25),
@@ -61,6 +75,9 @@ class _BottomImageUploadState extends State<BottomImageUpload> {
                           Icons.add_a_photo,
                           size: 50,
                         )),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     const Text(
                       'TAKE PHOTO',
                       style: TextStyle(color: Coloursheet.whiteColour),
@@ -68,7 +85,6 @@ class _BottomImageUploadState extends State<BottomImageUpload> {
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
                         padding: const EdgeInsets.only(right: 25),
@@ -79,6 +95,9 @@ class _BottomImageUploadState extends State<BottomImageUpload> {
                           Icons.upload_file,
                           size: 50,
                         )),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     const Text(
                       'CHOOSE IMAGE',
                       style: TextStyle(color: Coloursheet.whiteColour),
@@ -93,23 +112,100 @@ class _BottomImageUploadState extends State<BottomImageUpload> {
     }
 
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: CircleAvatar(
+          child: TextButton(
+              onPressed: () {
+                Multipleimage();
+              },
+              child: const Text(
+                'SelectImage',
+                style: TextStyle(fontSize: 8, color: Colors.white),
+              ))),
       appBar: AppBar(
         title: const Center(child: Text('UPLOAD IMAGE')),
       ),
       body: Column(
         children: [
-          Container(
-              width: 200,
-              height: 200,
-              child:
-                  myimages != null ? Image(image: FileImage(myimages!)) : null),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                blurscrn();
-              },
-              child: const Text('Upload Image'),
-            ),
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Container(
+                        width: 100,
+                        height: 100,
+                        child: myimages != null
+                            ? Image(
+                                image: FileImage(myimages!),
+                                fit: BoxFit.cover,
+                              )
+                            : null),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: Container(
+                        width: 100,
+                        height: 100,
+                        child: mygallery != null
+                            ? Image(
+                                image: FileImage(mygallery!),
+                                fit: BoxFit.cover,
+                              )
+                            : null),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Container(
+                width: 500,
+                height: 400,
+                child: GridView.builder(
+                  itemCount: PickedMultipleImage.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 2,
+                      mainAxisSpacing: 2,
+                      crossAxisCount: 2),
+                  itemBuilder: (context, index) => Stack(
+                    alignment: AlignmentDirectional.topEnd,
+                    fit: StackFit.expand,
+                    children: [
+                      Container(
+                        child: Image(
+                            image: FileImage(
+                                File(PickedMultipleImage[index].path)),
+                            fit: BoxFit.cover),
+                      ),
+                      Positioned(
+                        left: 5,
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              PickedMultipleImage.removeAt(index);
+                            });
+                          },
+                          icon: const Icon(Icons.delete,
+                              color: Colors.yellow, weight: 10),
+                          color: Colors.yellowAccent,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    blurscrn();
+                  },
+                  child: const Text('Upload Image'),
+                ),
+              ),
+            ],
           ),
         ],
       ),

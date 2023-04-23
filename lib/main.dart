@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/cupertino.dart';
-//import '/SCREEN/Dashboard.dart';
-//import '/SCREEN/Button.dart';
-//import '/SCREEN/Important.dart';
-//import '/SCREEN/List.dart';
-//import '/SCREEN/listbuilder.dart';
-import '/SCREEN/floatingButton.dart';
+
+import 'SCREEN/AMAZON/UI_Design/UI_Design.dart';
 
 void main() => runApp(Myapp());
 
@@ -14,12 +9,9 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SAGE',
-      themeMode: ThemeMode.system,
-      color: Colors.deepPurple,
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: floatingButton(),
+      home: UI_Design(),
     );
   }
 }
